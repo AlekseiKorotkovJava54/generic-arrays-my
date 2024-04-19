@@ -1,5 +1,6 @@
 package telran.shapes;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 import telran.shapes.exceptions.NoCanvasException;
 import telran.shapes.exceptions.ShapeAlreadyExistsException;
@@ -73,6 +74,9 @@ public class Page implements Iterable<Shape>{
 
 		@Override
 		public Shape next() {
+			if(!hasNext()) {
+				throw new NoSuchElementException();
+			}
 			return shapes[currentIndex++];
 		}
 		
