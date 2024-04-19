@@ -18,14 +18,9 @@ public abstract class  Shape {
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Shape other = (Shape) obj;
-		return id == other.id;
+		boolean res = false;
+		if (obj instanceof Shape) res = id == ((Shape)obj).id;
+		return res;
 	}
 	
 	
